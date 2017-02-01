@@ -1,0 +1,20 @@
+/// Set button text color
+/// Retorna un color en función de si el background es oscuro o claro.
+/// @example
+/// .box {
+///   background: #000;
+///   color: @include set-button-text-color(#000);
+///  }
+/// @access public
+/// @param {string} $color - Color del background para determinar
+/// @param {string} $txt-color-dark - Color del texto oscuro, por defecto se define en #000
+/// @param {string} $txt-color-lightness - Color del texto claro, por defecto se define en #fff
+/// si es oscuro o claro
+/// @return {string} - Retorna el color del texto
+@function set-button-text-color( $color, $txt-color-dark: #000000, $txt-color-lightness: #ffffff ) {
+  @if (lightness( $color ) > 60) {
+    @return $txt-color-dark;
+  } @else {
+    @return $txt-color-lightness;
+  }
+}

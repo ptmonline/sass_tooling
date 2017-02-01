@@ -1,0 +1,16 @@
+/// @name respond-to
+/// Mixin media query with sass maps
+/// @require $breakpoints
+/// @param {string} name -- > Valor del breakpoint en px
+/// @param {string} type --> Indica si es max-width o min-width, por
+/// defecto siempre será max-width
+@mixin respond-to( $breakpoint, $type: max ) {
+  @if map-has-key( $breakpoints, $breakpoint ) {
+    @media (#{$type}-width: #{map-get( $breakpoints, $breakpoint )}) {
+      @content;
+    }
+  } @else {
+      @warn 'Unfortunately, no value could be retrieved from `#{$breakpoint}`. '
+      + 'Please make sure it is defined in `$breakpoints` map.';
+  }
+}

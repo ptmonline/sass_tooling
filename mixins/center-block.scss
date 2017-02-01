@@ -1,0 +1,9 @@
+/// @name centerBlock
+/// @author Alberto Córcoles
+/// Añade un bloque de propiedades para centrar
+/// un elemento con respecto a su posición absoluta.
+@mixin center-block {
+  top: 50%;
+  left: 50%;
+  transform: translate3d( -50%, -50%, 0 );
+}

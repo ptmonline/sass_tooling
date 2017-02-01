@@ -1,0 +1,23 @@
+{
+  "name": "@costaisa-tools/sass-tools",
+  "version": "1.0.0",
+  "description": "A collection of useful mixins, functions, utilities etc. to be used in your project",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sass",
+    "tools",
+    "mixins",
+    "functions",
+    "utilities",
+    "helpers"
+  ],
+  "author": "Alberto Córcoles",
+  "license": "ISC",
+  "dependencies": {
+    "sassdoc": "^2.1.20"
+  }
+}

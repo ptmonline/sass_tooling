@@ -1,0 +1,15 @@
+/// @name Keyframes
+/// @author Hugo Giraudel
+/// Injecta los keyframes con sus modificadores correspondientes
+/// @example
+/// @include keyframes(inElement) {
+///   0% { opacity: 0 }
+///   100% { opacity: 1 }
+/// }
+/// @param {string} $name
+@mixin keyframes( $name ) {
+    @-webkit-keyframes #{$name} {@content; }
+    @-moz-keyframes #{$name} {@content;}
+    @-ms-keyframes #{$name} {@content;}
+    @keyframes #{$name} {@content;}
+}

@@ -1,0 +1,18 @@
+/// @name generate-dynamic-classes
+/// Genera una salida en css de classes únicas en px de la propiedad que se le pasa como argumento
+/// @param {string} $name - Nombre de la clase que tendrá en la salida el css
+/// @param {string} $property - Nombre de la propiedad
+/// @param {number} $items - Número de veces que se va a pintar la clase
+/// @param {number} $steps - Unidad por la cual se va a multiplicar el valor. Por defecto es 1
+/// @example
+/// @include generate-dynamic-classes(space-top, margin-top, 10, 5);
+
+@mixin generate-dynamic-classes($name, $property, $items, $steps: 1) {
+  @for $i from 1 through $items {
+    $num: ( $i * $steps );
+      [#{$name}#{$num}],
+    .#{$name}#{$num} {
+        #{$property}: (0px + $num);
+    }
+  }
+}

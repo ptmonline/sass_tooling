@@ -1,0 +1,32 @@
+/// Retorna un mapa de colores.
+/// @access public
+/// @param {map} $map mapa que se desea obtener después del merge
+/// @param {map} $obj mapa objeto el cual contiene colores o un conjunto de mapas
+/// @param {string} $property string que se le pasa para determinar la clave del mapa por el cual deseamos obtener el mapa
+/// @return {map} $obj mapa objeto el cual contiene colores o un conjunto de mapas
+
+@function create-map-colors($map, $obj, $property: null) {
+
+    $returned-map: $map;
+
+    @each $key, $value in $obj {
+      @if type-of($value) == "map" {
+
+        @if(map-get($value, $property) ) {
+          $returned-map: map-merge($returned-map, ($key: map-deep-get($value, 'color')));
+        }
+
+        @if($property == null ) {
+          $returned-map: map-merge($returned-map, ($key: map-deep-get($value, 'color')));
+        }
+
+      }
+      @if($property == null ) {
+        @if type-of($value) == "color" {
+          $returned-map: map-merge($returned-map, ($key: $value));
+        }
+      }
+  }// end each
+  @return $returned-map;
+}
+
